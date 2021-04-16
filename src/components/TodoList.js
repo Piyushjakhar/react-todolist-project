@@ -22,12 +22,16 @@ handleChange = (e) => {
 
 handleSubmit = (e) => {
     e.preventDefault();
-   const text = this.state.text;
+   const name = this.state.text;
         this.setState({
-            todos: [text,...this.state.todos]
+            todos: [name,...this.state.todos]
             
         })
-
+        
+        
+     this.setState({
+         text: ""
+     })
      
 
         
