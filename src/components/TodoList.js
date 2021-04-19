@@ -1,5 +1,6 @@
 import React, {Component} from 'react';
-import Todo from "./Todo"
+import Todo from "./Todo";
+
 
 
 class TodoList extends Component {
@@ -8,7 +9,7 @@ class TodoList extends Component {
 
     this.state = {
         text: "",
-        todos: ["hi","bye"]
+        todos: []
     };
     
 }
@@ -27,14 +28,10 @@ handleSubmit = (e) => {
             todos: [name,...this.state.todos]
             
         })
-        
-        
+            
      this.setState({
          text: ""
      })
-     
-
-        
 
 }
 
@@ -43,12 +40,12 @@ handleSubmit = (e) => {
         return(
             <>
             <form onSubmit={this.handleSubmit}>
-                <input type="text" onChange={this.handleChange}></input>
-                <button onClick={this.handleSubmit}>Add Todo</button>
+                <input value={this.state.text} type="text" onChange={this.handleChange} style={{border: "2px solid black"}}></input>
+                <button style={{margin: "10px"}} onClick={this.handleSubmit} className="fas fa-plus addtodo"></button>
             </form>
 
             {this.state.todos.map(todo => {
-               return <Todo todo={todo} />
+               return <Todo  todo={todo} />
             })}
 
             </>
